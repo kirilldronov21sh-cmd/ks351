@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1КС-35 - Контакты</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Стили для страницы контактов */
+        .contact-page {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header h1 {
+            font-size: 2.8rem;
+            color: #2575fc;
+            margin-bottom: 10px;
+        }
+
+        .contact-header p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
+            border-bottom-color: #6a11cb;
+        }
+
+        .contact-card h2 {
+            color: #6a11cb;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            text-align: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .info-item:hover {
+            background: #f8f9fa;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6a11cb20 0%, #2575fc20 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #6a11cb;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-content h3 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .info-content p {
+            color: #666;
+            font-size: 1rem;
+            margin: 2px 0;
+        }
+
+        .info-content a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .info-content a:hover {
+            color: #6a11cb;
+            text-decoration: underline;
+        }
+
+        .map-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .map-card h2 {
+            color: #6a11cb;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        .feedback-form {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feedback-form h2 {
+            color: #6a11cb;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #6a11cb;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(106, 17, 203, 0.3);
+        }
+
+        .active-nav {
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* Стили для ссылок колледжа */
+        .college-links {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .college-links a {
+            display: inline-block;
+            margin: 5px 10px;
+            color: #6a11cb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .college-links a:hover {
+            color: #2575fc;
+        }
+
+        @media (max-width: 768px) {
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+            
+            .map-container iframe {
+                height: 300px;
+            }
+            
+            .feedback-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="gallery.html">Фото</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="contact.html" class="active-nav">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-page">
+        <div class="container">
+            <div class="contact-header">
+                <h1>📬 Свяжитесь с нами</h1>
+                <p>Луганский колледж строительства, экономики и права</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Карточка колледжа -->
+                <div class="contact-card">
+                    <h2>🏛️ ЛКСЭП</h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h3>Адрес</h3>
+                            <p>г. Луганск, ул. Кирова, 62</p>
+                            <p style="font-size: 0.9rem; color: #888;">291019, Луганская Народная Республика</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h3>Электронная почта</h3>
+                            <p><a href="mailto:lstts2006@rambler.ru">lstts2006@rambler.ru</a></p>
+                            <p><a href="mailto:priem@lksep.com">priem@lksep.com</a> (приемная комиссия)</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">🌐</div>
+                        <div class="info-content">
+                            <h3>Официальные сайты</h3>
+                            <p><a href="https://lksep.com" target="_blank">lksep.com</a> — основной сайт</p>
+                            <p><a href="https://edu.lksep.com" target="_blank">edu.lksep.com</a> — образовательный портал</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h3>Телефоны</h3>
+                            <p><a href="tel:+79591942330">+7 (959) 194-23-30</a> — приемная комиссия</p>
+                            <p><a href="tel:+78572932031">+7 (8572) 93-20-31</a> — приемная директора</p>
+                        </div>
+                    </div>
+
+                    <div class="college-links">
+                        <a href="https://lksep.com" target="_blank">🔗 Основной сайт</a>
+                        <a href="https://edu.lksep.com" target="_blank">🔗 Образовательный портал</a>
+                        <a href="https://lksep.com/abiturient" target="_blank">🔗 Абитуриенту</a>
+                        <a href="https://lksep.com/raspisanie" target="_blank">🔗 Расписание</a>
+                    </div>
+                </div>
+
+                <!-- Карточка создателя сайта -->
+                <div class="contact-card">
+                    <h2>👨‍💻 Создатель сайта</h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">👤</div>
+                        <div class="info-content">
+                            <h3>Дронов Кирилл</h3>
+                            <p>Замстаросты, разработчик</p>
+                            <p>Группа 1КС-35</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h3>Почта для связи</h3>
+                            <p><a href="mailto:dronov@student.ru">dronov@student.ru</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">💬</div>
+                        <div class="info-content">
+                            <h3>Telegram</h3>
+                            <p><a href="https://t.me/kirill_dronov">@kirill_dronov</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Кнопка "Написать создателю" УДАЛЕНА -->
+                </div>
+            </div>
+
+            <!-- Яндекс Карта -->
+            <div class="map-card">
+                <h2>🗺️ Как добраться</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A30c8e9ef7e487952320bcb448edc20af23b621515329f85e23800d541b9c7efb&amp;source=constructor" 
+                        width="100%" 
+                        height="400" 
+                        frameborder="0">
+                    </iframe>
+                </div>
+                <p style="text-align: center; margin-top: 15px; color: #666;">
+                    <strong>Луганский колледж строительства, экономики и права</strong><br>
+                    г. Луганск, ул. Кирова, 62 (район старого железнодорожного вокзала)<br>
+                    <a href="https://yandex.ru/maps/org/luganskiy_kolledzh_stroitelstva_ekonomiki_i_prava/1024768902/" target="_blank">📌 Открыть в Яндекс Картах</a>
+                </p>
+            </div>
+
+            <!-- Форма обратной связи -->
+            <div class="feedback-form">
+                <h2>✍️ Написать нам</h2>
+                
+                <form action="mailto:dronov@student.ru" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label>Ваше имя</label>
+                        <input type="text" name="name" placeholder="Введите имя" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email для ответа</label>
+                        <input type="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Тема обращения</label>
+                        <select name="subject">
+                            <option>Вопрос по учебе</option>
+                            <option>Сотрудничество</option>
+                            <option>Предложение</option>
+                            <option>Проблема с сайтом</option>
+                            <option>Другое</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Сообщение</label>
+                        <textarea name="message" placeholder="Напишите нам..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Отправить сообщение</button>
+                </form>
+                
+                <p style="text-align: center; margin-top: 20px; color: #888; font-size: 0.9rem;">
+                    * Письмо придет на почту создателя сайта
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#">VK</a>
+            <a href="#">Telegram</a>
+        </div>
+        <p>&copy; 2026 1КС-35</p>
+    </footer>
+</body>
+</html>

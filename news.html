@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1КС-35 - Новости</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Стили для страницы новостей */
+        .news-page {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+        }
+
+        .news-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .news-header h1 {
+            font-size: 2.8rem;
+            color: #2575fc;
+            margin-bottom: 10px;
+        }
+
+        .news-header p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        /* Карточка новости */
+        .news-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-left: 5px solid #6a11cb;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
+        }
+
+        .news-date {
+            display: inline-block;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .news-title {
+            font-size: 2rem;
+            color: #2575fc;
+            margin-bottom: 20px;
+        }
+
+        .news-content {
+            color: #444;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .news-content p {
+            margin-bottom: 15px;
+        }
+
+        .news-content strong {
+            color: #6a11cb;
+        }
+
+        .teachers-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .teachers-list h3 {
+            color: #6a11cb;
+            margin-bottom: 10px;
+        }
+
+        .teachers-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .teachers-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .teachers-list li:last-child {
+            border-bottom: none;
+        }
+
+        .winners {
+            background: linear-gradient(135deg, #6a11cb20 0%, #2575fc20 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2575fc;
+            border: 2px solid #6a11cb;
+        }
+
+        .news-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #e0e0e0;
+            color: #888;
+            font-style: italic;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #6a11cb;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            color: #2575fc;
+        }
+
+        .active-nav {
+            background: rgba(255,255,255,0.25);
+        }
+
+        @media (max-width: 768px) {
+            .news-header h1 {
+                font-size: 2rem;
+            }
+            
+            .news-title {
+                font-size: 1.5rem;
+            }
+            
+            .news-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="gallery.html">Фото</a></li>
+                <li><a href="news.html" class="active-nav">Новости</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="news-page">
+        <div class="container">
+            <div class="news-header">
+                <h1>📰 Новости группы</h1>
+                <p>Самые свежие события из жизни 1КС-35</p>
+            </div>
+
+            <!-- НОВОСТЬ: Единый урок Internet-безопасности -->
+            <div class="news-card">
+                <div class="news-date">27 февраля 2026</div>
+                <h2 class="news-title">🌐 Единый урок Internet-безопасности</h2>
+                
+                <div class="news-content">
+                    <p>Глобальная сеть Internet прочно вошла в нашу жизнь. Она открывает перед нами широкие возможности, постепенно проникая в каждую организацию, учебное заведение, в наши дома.</p>
+                    
+                    <p>Число пользователей сети Internet в мире стремительно растет, причем доля молодежи и совсем юной аудитории среди пользователей Всемирной паутины очень велика. Для многих, особенно молодых людей, он становится информационной средой, без которой они не представляют свою жизнь.</p>
+                    
+                    <p>И это не удивительно, ведь в сети Internet можно найти информацию для реферата или курсовой, прослушать любимую мелодию, купить понравившуюся книгу или обсудить горячую тему на многочисленных форумах.</p>
+                    
+                    <p>Internet может быть прекрасным и полезным средством для обучения, отдыха или общения с друзьями. Но – как и реальный мир – сеть тоже может быть опасна. Поэтому важно обладать информацией о безопасности в сети Internet.</p>
+                    
+                    <p>В феврале отмечается Всемирный День безопасного Интернета. 27 февраля 2026 г. преподавателями колледжа было проведено мероприятие «Единый урок Internet-безопасности», в котором приняли участие студенты групп <strong>1КС-35</strong> и <strong>1ИБ-38</strong>.</p>
+
+                    <div class="teachers-list">
+                        <h3>👩‍🏫 Организаторы мероприятия:</h3>
+                        <ul>
+                            <li>Федоренко Елена Васильевна</li>
+                            <li>Зубкова Елена Александровна</li>
+                            <li>Сытник Марина Викторовна</li>
+                            <li>Рогозин Вячеслав Сергеевич</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Целью занятия было систематизация знаний в области использования сети Internet, формирование общих представлений о безопасной работе в сети Internet.</p>
+                    
+                    <p>После просмотра видеоролика студенты участвовали в викторине и те, кто набрал наибольшее количество баллов, были награждены сладкими призами.</p>
+                    
+                    <div class="winners">
+                        🏆 ПОЗДРАВЛЯЕМ ПОБЕДИТЕЛЕЙ! 🏆
+                    </div>
+                </div>
+                
+                <div class="news-footer">
+                    #безопасность #интернет #1КС35 #мероприятие
+                </div>
+            </div>
+
+            <!-- Место для следующих новостей -->
+            <!--
+            <div class="news-card">
+                <div class="news-date">... число ...</div>
+                <h2 class="news-title">... заголовок ...</h2>
+                <div class="news-content">
+                    ... текст ...
+                </div>
+            </div>
+            -->
+
+            <a href="index.html" class="back-link">← На главную</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#">VK</a>
+            <a href="#">Telegram</a>
+        </div>
+        <p>&copy; 2026 1КС-35</p>
+    </footer>
+</body>
+</html>

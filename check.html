@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка фото</title>
+</head>
+<body>
+    <h2>Проверка загрузки фото:</h2>
+    
+    <div style="padding: 20px; border: 2px solid blue; margin: 20px;">
+        <h3>Попытка 1: Прямая загрузка</h3>
+        <img src="photo/teacher-photo.png" style="max-width: 400px; border: 2px solid red;">
+    </div>
+
+    <div style="padding: 20px; border: 2px solid green; margin: 20px;">
+        <h3>Попытка 2: С обработкой ошибки</h3>
+        <img src="photo/teacher-photo.png" 
+             onerror="this.style.display='none'; this.parentElement.innerHTML += '<b style=color:red>❌ Фото не загрузилось!</b>';"
+             style="max-width: 400px;">
+    </div>
+
+    <div style="padding: 20px; border: 2px solid orange; margin: 20px;">
+        <h3>Попытка 3: Текстовая ссылка</h3>
+        <a href="photo/teacher-photo.png" target="_blank">Открыть фото в новой вкладке</a>
+    </div>
+
+    <div style="padding: 20px; border: 2px solid purple; margin: 20px;">
+        <h3>Информация:</h3>
+        <p>Путь: <b>photo/teacher-photo.png</b></p>
+        <p>Полный путь: <script>document.write(window.location.href + 'photo/teacher-photo.png');</script></p>
+    </div>
+</body>
+</html>
